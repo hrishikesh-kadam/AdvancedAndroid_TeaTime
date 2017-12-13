@@ -34,12 +34,8 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
  * the quantity the total cost.
  */
 
-// TODO COMPLETED (1) Add annotation to specify AndroidJUnitRunner class as the default test runner
-
 @RunWith(AndroidJUnit4.class)
 public class OrderActivityBasicTest {
-
-    // TODO COMPLETED (2) Add the rule that provides functional testing of a single activity
 
     /**
      * The ActivityTestRule is a rule provided by Android used for functional testing of a single
@@ -52,11 +48,6 @@ public class OrderActivityBasicTest {
     @Rule
     public ActivityTestRule<OrderActivity> mActivityTestRule =
             new ActivityTestRule<>(OrderActivity.class);
-
-    // TODO COMPLETED (3) Finish writing this test which will:
-    //          - Check that the initial quantity is zero
-    //          - Click on the decrement button
-    //          - Verify that the decrement button won't decrease the quantity 0 and cost below $0.00
 
     @Test
     public void clickDecrementButton_ChangesQuantityAndCost() {
