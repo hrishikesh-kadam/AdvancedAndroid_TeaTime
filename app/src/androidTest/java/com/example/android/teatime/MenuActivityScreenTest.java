@@ -40,15 +40,10 @@ import static org.hamcrest.Matchers.anything;
  * takes into account Idling Resources.
  */
 
-
-// TODO COMPLETED (1) Add annotation to specify AndroidJUnitRunner class as the default test runner
-
 @RunWith(AndroidJUnit4.class)
 public class MenuActivityScreenTest {
 
     public static final String TEA_NAME = "Green Tea";
-
-    // TODO COMPLETED (2) Add the rule that provides functional testing of a single activity
 
     /**
      * The ActivityTestRule is a rule provided by Android used for functional testing of a single
@@ -59,9 +54,6 @@ public class MenuActivityScreenTest {
      */
     @Rule
     public ActivityTestRule<MenuActivity> mActivityTestRule = new ActivityTestRule<>(MenuActivity.class);
-
-    // TODO COMPLETED (3) Finish writing this test which will click on a gridView Tea item and verify that
-    // the OrderActivity opens up with the correct tea name displayed.
 
     /**
      * Clicks on a GridView item and checks it opens up the OrderActivity with the correct details.
