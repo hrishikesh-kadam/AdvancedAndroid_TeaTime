@@ -38,14 +38,11 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.hamcrest.core.IsNot.not;
 
-// TODO COMPLETED (1) Add annotation to specify AndroidJUnitRunner class as the default test runner
 
 @RunWith(AndroidJUnit4.class)
 public class OrderSummaryActivityTest {
 
     private static final String emailMessage = "I just ordered a delicious tea from TeaTime. Next time you are craving a tea, check them out!";
-
-    // TODO COMPLETED (2) Add the rule that indicates we want to use Espresso-Intents APIs in functional UI tests
 
     /**
      *
@@ -60,18 +57,12 @@ public class OrderSummaryActivityTest {
     public IntentsTestRule<OrderSummaryActivity> mActivityRule = new IntentsTestRule<>(
             OrderSummaryActivity.class);
 
-    // TODO COMPLETED (3) Finish this method which runs before each test and will stub all external
-    // intents so all external intents will be blocked
-
     @Before
     public void stubAllExternalIntents() {
         // By default Espresso Intents does not stub any Intents. Stubbing needs to be setup before
         // every test run. In this case all external Intents will be blocked.
         intending(not(isInternal())).respondWith(new ActivityResult(Activity.RESULT_OK, null));
     }
-
-    // TODO COMPLETED (4) Finish this method which verifies that the intent sent by clicking the send email
-    // button matches the intent sent by the application
 
     @Test
     public void clickSendEmailButton_SendsEmail() {
