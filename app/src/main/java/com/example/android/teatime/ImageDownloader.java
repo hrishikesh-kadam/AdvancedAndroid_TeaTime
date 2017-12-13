@@ -20,6 +20,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.test.espresso.IdlingResource;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.android.teatime.IdlingResource.SimpleIdlingResource;
@@ -35,6 +36,7 @@ import java.util.ArrayList;
  */
 class ImageDownloader {
 
+    private static final String LOG_TAG = ImageDownloader.class.getSimpleName();
     private static final int DELAY_MILLIS = 3000;
 
     // Create an ArrayList of mTeas
@@ -55,6 +57,7 @@ class ImageDownloader {
      */
     static void downloadImage(Context context, final DelayerCallback callback,
                               @Nullable final SimpleIdlingResource idlingResource) {
+        Log.v(LOG_TAG, "-> downloadImage");
 
         /**
          * The IdlingResource is null in production as set by the @Nullable annotation which means
@@ -64,10 +67,10 @@ class ImageDownloader {
          * If the idle state is false, Espresso will wait until it is true before
          * performing the next action.
          */
-        if (idlingResource != null) {
+        if (idlingResource != null)
             idlingResource.setIdleState(false);
-        }
-
+        else
+            Log.d(LOG_TAG, "-> downloadImage -> getIdlingResource ignored as process in production");
 
         // Display a toast to let the user know the images are downloading
         String text = context.getString(R.string.loading_msg);
